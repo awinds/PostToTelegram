@@ -5,6 +5,8 @@
  
 github：[https://github.com/awinds/PostToTelegram](https://github.com/awinds/PostToTelegram) 
 
+blog:[https://xiaoa.me/archives/plugin_posttotelegram.html](https://xiaoa.me/archives/plugin_posttotelegram.html)
+
 ## 使用方法  
 
 1.下载本插件，放在 `usr/plugins/` 目录中

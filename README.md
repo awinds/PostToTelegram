@@ -31,6 +31,12 @@ blog:[https://xiaoa.me/archives/plugin_posttotelegram.html](https://xiaoa.me/arc
 
 ## 效果
 
+文章效果(带og信息)：
+![article_demo](https://raw.githubusercontent.com/awinds/PostToTelegram/main/article_demo.png)
+
+图片效果：
+![image_demo](https://raw.githubusercontent.com/awinds/PostToTelegram/main/image_demo.png)
+
 图片组效果图：
 ![media_demo](https://raw.githubusercontent.com/awinds/PostToTelegram/main/media_demo.png)
 

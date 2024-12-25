@@ -215,7 +215,7 @@ class PostToTelegram_Plugin implements Typecho_Plugin_Interface
         foreach ($tags as $tag) {
             $text .= "#{$tag}  ";
         }
-        $text = "\n{$url}";
+        $text .= "\n{$url}";
 
         $data = [
             'chat_id' => $chatId,

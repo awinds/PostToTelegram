@@ -29,6 +29,11 @@ blog:[https://xiaoa.me/archives/plugin_posttotelegram.html](https://xiaoa.me/arc
 + `推送分类ID` 填写的分类则推送，不填写则推送所有分类
 + `是否启用日志` 启用后会生成log提交日志
 
+## 效果
+
+图片组效果图：
+![media_demo](https://raw.githubusercontent.com/awinds/PostToTelegram/main/media_demo.png)
+
 ## 说明
 - 本项目为推广我的图片网站到tg频道而开发。
 - 未发布或发布时间未到的不推送，同一文章一天内修改不推送。

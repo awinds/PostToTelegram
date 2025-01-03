@@ -160,7 +160,7 @@ class PostToTelegram_Plugin implements Typecho_Plugin_Interface
 
     //读取日志
     private static function log_get(){
-        $file = "temp_log/post2tg.log";
+        $file = "logs/PostToTelegram.log";
         if(file_exists($file) && Typecho_Widget::widget('Widget_Options')->plugin('PostToTelegram')->log){
             $file = fopen($file, "r") or exit("Unable to open file!");
             while(!feof($file))
@@ -269,9 +269,6 @@ class PostToTelegram_Plugin implements Typecho_Plugin_Interface
      */
     private static function getImageMode($chatId, $title, $url,$tags,$titleEmoji,$photoNum,$images)
     {
-        $data = [
-            'chat_id' => ''
-        ];
         $count = count($images);
         $text = "{$titleEmoji}<b>{$title}";
         if ($photoNum == 1) {

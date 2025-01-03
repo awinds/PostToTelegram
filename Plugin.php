@@ -150,15 +150,11 @@ class PostToTelegram_Plugin implements Typecho_Plugin_Interface
         //日志记录是否启用
         if(Typecho_Widget::widget('Widget_Options')->plugin('PostToTelegram')->log)
         {
-            $logSwitch = 1;
+            $logFile = 'logs/PostToTelegram.log'; // 日志路径
+            date_default_timezone_set('Asia/Shanghai');
+            file_put_contents($logFile, date('[Y-m-d H:i:s]: ') . $msg . PHP_EOL, FILE_APPEND);
 
-        }else{
-            $logSwitch  = 0;
         }
-        // 日志开关：1表示打开，0表示关闭
-        $logFile = 'logs/PostToTelegram.log'; // 日志路径
-        date_default_timezone_set('Asia/Shanghai');
-        file_put_contents($logFile, date('[Y-m-d H:i:s]: ') . $msg . PHP_EOL, FILE_APPEND);
         return $msg;
     }
 

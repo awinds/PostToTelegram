@@ -4,7 +4,7 @@
  * 
  * @package PostToTelegram
  * @author 小A
- * @version 1.2.0
+ * @version 1.2.1
  * @link https://xiaoa.me/archives/plugin_posttotelegram.html
  */
 class PostToTelegram_Plugin implements Typecho_Plugin_Interface
@@ -108,6 +108,14 @@ class PostToTelegram_Plugin implements Typecho_Plugin_Interface
             _t('填写的分类则推送，多个用半角,分隔，如:1,2，不填写则推送所有分类。<br>所有分类：'.self::myGetCategoryies())
         );
         $form->addInput($categoryIds);
+
+        $repeatPush = new Typecho_Widget_Helper_Form_Element_Radio('repeatPush',
+            array('0' => '否', '1' => '是'),
+            0,
+            _t('是否更新文章重复推送：'),
+            _t('更新文章时是否重复推送文章，默认推送')
+        );
+        $form->addInput($repeatPush);
 
         $log = new Typecho_Widget_Helper_Form_Element_Radio('log',
             array('0' => '否', '1' => '是'),
@@ -303,13 +311,18 @@ class PostToTelegram_Plugin implements Typecho_Plugin_Interface
             self::log_save("文章状态：".$post['visibility'] ." 或发布时间：".$post['created'].">".$curtime);
             return;
         }
-        //一天之内的文章不再次推送
-        if((int)$class->modified > (int)$post['created'] && (int)$post['created']+86400 > (int)$class->modified){
-            self::log_save("发布时间：".$post['created']."和更新时间".$class->modified."在一天内");
-            return;
-        }
 
         $options = Helper::options();
+
+        $repeatPush = $options->plugin('PostToTelegram')->repeatPush;
+        if ($repeatPush == 0) {
+            //一天之内的文章不再次推送
+            if ((int)$class->modified > (int)$post['created'] && (int)$post['created'] + 86400 > (int)$class->modified) {
+                self::log_save("发布时间：" . $post['created'] . "和更新时间" . $class->modified . "在一天内");
+                return;
+            }
+        }
+
         $botToken = $options->plugin('PostToTelegram')->botToken;
         $chatId = $options->plugin('PostToTelegram')->chatId;
 

@@ -28,6 +28,7 @@ blog:[https://xiaoa.me/archives/plugin_posttotelegram.html](https://xiaoa.me/arc
 + `Telegram API转发地址` 通过自己建立转发api来发送到tg，为空则默认为`https://api.telegram.org`，如何代理自行寻找教程
 + `推送分类ID` 填写的分类则推送，不填写则推送所有分类
 + `是否启用日志` 启用后会生成log提交日志
++ `是否更新文章重复推送` 启用后不判断更新时间在1天之内，也会重复推送
 
 ## 效果
 
@@ -48,6 +49,9 @@ blog:[https://xiaoa.me/archives/plugin_posttotelegram.html](https://xiaoa.me/arc
 - 图片模式推送为内容或附件的第一张图片，标题可选择是否显示图片数，和emoji开头。
 
 ## 版本
+### v1.2.1
+- 增加是否重复推送配置，开启更新文章重复推送则不判断更新时间在1天之内条件
+
 ### v1.2.0
 - 增加推送图片组模式
 
